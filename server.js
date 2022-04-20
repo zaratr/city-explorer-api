@@ -1,16 +1,16 @@
 'use strict'
-//GLOBAL VARS
-let data = require(`./weather.json`);
 
 //Requires
 
 const express = require('express');
 require('dotenv').config();
-
+//GLOBAL VARS
+let data = require(`./weather.json`);
 
 //USE
-
+const cors = require('cors');
 const app = express();
+app.use(cors());
 //define PORT and validate that my env is working 
 const PORT = process.env.PORT || 3002
 //if 3002, then something is wrong with the PORT
