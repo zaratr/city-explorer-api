@@ -1,3 +1,5 @@
 
-#server variables ignor
+#server variables ignore
 .env
+
+.vscode
