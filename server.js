@@ -1,6 +1,7 @@
 'use strict'
-//global vars
-let data = require(`weather.json`);
+//GLOBAL VARS
+let data = require(`./weather.json`);
+
 //Requires
 
 const express = require('express');
