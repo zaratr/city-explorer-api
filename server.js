@@ -61,8 +61,8 @@ class City{
         try
         {
         this.cityName = cityObj.city_name;
-        this.lon = cityObj[0].lon
-        this.lat = cityObj[0].lat
+        this.lon = cityObj.lon
+        this.lat = cityObj.lat
         }
         catch(e)
         {
