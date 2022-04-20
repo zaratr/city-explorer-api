@@ -21,7 +21,12 @@ const PORT = process.env.PORT || 3002
 //app.get correlates to axios.get
 //the first param is the URL in quotes
 app.get('/', (request, response) => {
-response.send("Hello, from server");
+        console.log(request.query)
+        let {city} = request.query;
+        let dataToSend = data.find(city => city.city_name === area)
+        let selectedCity = new City(dataToSend);
+        response.send("Hello, from servered");
+        response.send(dataToSend);
 })
 
 app.get('/sayHello', (request, response) =>
@@ -31,11 +36,10 @@ app.get('/sayHello', (request, response) =>
 
 app.get('/weather', (request, response) =>{
 
-        let area = request.query.city_name;
-        let dataToSend = data.find(city => city.city_name === area)
+        let qCity = request.query.city_name;
+        let dataToSend = data.find(city => city.city_name === qCity)
         let selectedCity = new City(dataToSend);
     response.send(dataToSend);
-    
 });
 //CATCH ALL: error and must be at bottom of all app.gets
 app.get('*', (request, response) => {
@@ -44,14 +48,21 @@ app.get('*', (request, response) => {
 
 //ERRORS
 
+app.use((error, request, response, next) =>
+{
+    response.status(500).send(error.message);
+});
+
+
+//Classes
 class City{
     constructor(cityObj)
     {
         try
         {
-        this.name = cityObj.city_name;
-        this.lon = cityObj.lon
-        this.lat = cityObj.lat
+        this.cityName = cityObj.city_name;
+        this.lon = cityObj[0].lon
+        this.lat = cityObj[0].lat
         }
         catch(e)
         {
