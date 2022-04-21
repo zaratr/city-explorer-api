@@ -32,7 +32,7 @@ class Movies{
                 this.overview=movie.overview,
                 this.average_votes = movie.vote_average,
                 this.total_votes= movie.vote_count,
-                this.image_url =   "https://image.tmdb.org/t/p/w500" + x;
+                this.image_url =   "https://image.tmdb.org/t/p/w300" + x;
                 this.popularity = movie.popularity,
                 this.release_on = movie.release_date
     }
