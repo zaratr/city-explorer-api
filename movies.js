@@ -24,14 +24,15 @@ async function getMovies(city)
 class Movies{
     constructor(movie)
     {
-        let x = movie.poster_path !== null? movie.poster_path.replace(/\//g,'') : [];
-        //https://api.themoviedb.org/3/movie/550?api_key=17f3a718b0f5d36680aae68a930ccfa4
+        let x = movie.poster_path;
+       
+        //"https://api.themoviedb.org/3/movie/550?"
         //console.log("HERE IS obj: ", movie, typeof(movie.poster_path))
                 this.title = movie.title,
                 this.overview=movie.overview,
                 this.average_votes = movie.vote_average,
                 this.total_votes= movie.vote_count,
-                this.image_url = "https://api.themoviedb.org/3/movie/550?api_key=" + x;
+                this.image_url =   "https://image.tmdb.org/t/p/w500" + x;
                 this.popularity = movie.popularity,
                 this.release_on = movie.release_date
     }
