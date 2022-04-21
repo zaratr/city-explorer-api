@@ -9,9 +9,6 @@ async function getMovies(city)
 {
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&query=${city}&include_adult=false`;
     let dataToSend = await axios.get(url);
-        console.log('-------------------------------->HERE: ', dataToSend, 'HERE<-----------------------------------------')
-    //let selectedMovies = new Movies(dataToSend.data.results);
-
     let arrayOfMovies = [];
     dataToSend.data.results.forEach(obj => {
         let moviesObj = new Movies(obj)
