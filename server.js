@@ -24,13 +24,7 @@ const PORT = process.env.PORT || 3002
 
 //app.get correlates to axios.get
 //the first param is the URL in quotes
-app.get('/', (request, response) => {
-        let {city} = request.query;
-        let dataToSend = data.find(cityData => cityData.city_name === city)
-        //let selectedCity = new City(dataToSend);
-        //response.send("Hello, from servered");
-        response.send(dataToSend);
-})
+app.get('/', (request, response) => response.send("Hello, from servered"));
 
 
 app.get('/weather', weather);
