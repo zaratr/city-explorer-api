@@ -102,6 +102,8 @@ class City{
 class Movies{
     constructor(movie)
     {
+        let x = movie.poster_path !== null? movie.poster_path.replace(/\//g,'') : [];
+        //console.log("HERE IS obj: ", movie, typeof(movie.poster_path))
         //this.moviesArr = [];
         //moviesObj.forEach(movie => 
         //{
@@ -111,7 +113,7 @@ class Movies{
                 this.overview=movie.overview,
                 this.average_votes = movie.vote_average,
                 this.total_votes= movie.vote_count,
-                this.image_url = "https://api.themoviedb.org/3/movie/550?api_key=" + movie.poster_path//.replace(/\//g,''),
+                this.image_url = "https://api.themoviedb.org/3/movie/550?api_key=" + x;
                 this.popularity = movie.popularity,
                 this.release_on = movie.release_date
             //);
