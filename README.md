@@ -20,6 +20,17 @@
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
+### Lab06 Web Request Response Cycle (WRRC) 
+![Lab 06 RoughDraft and Overview of Web Request Response cycle (WRRC)](public/APILab06.jpg)
+### Lab07 Web Request Response Cycle (WRRC) 
+![Lab 07 Overview of Web Request Response cycle (WRRC)](public/Lab7.jpg)
+
+### Lab08 Web Request Response Cycle (WRRC) 
+![Lab 08 Overview of Web Request Response cycle (WRRC)](public/lab08.jpg)
+
+### Lab09 Web Request Response Cycle (WRRC) 
+![Lab 09 Overview of Web Request Response cycle (WRRC)](public/lab9.jpg)
+
 
 Name of feature: City Explorer Node Express
 
