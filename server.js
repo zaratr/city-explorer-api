@@ -1,56 +1,39 @@
-'use strict'
-
-//Requires
+'use strict';
 
 require('dotenv').config();
 const express = require('express');
-const {default: axios} = require('axios');
 const cors = require('cors');
-//GLOBAL VARS
-let data = require(`./weather.json`);
-const { request } = require('express');
-const getWeather = require('./weather.js')
-const getMovies = require('./movies.js')
+const {request} = require('express');
 
-//USE
+const weather = require('./modules/weather.js');
+const movies = require('./modules/movies');
+const { response } = require('express');
 const app = express();
+const PORT = process.env.PORT || 3002;
 app.use(cors());
-//define PORT and validate that my env is working 
-//if 3002, then something is wrong with the PORT
-const PORT = process.env.PORT || 3002
+app.get('/weather', weatherHandler);
+app.get('/movies', movieHandler);
+
+function weatherHandler(request, response) {
+  const city = request.query;
+  weather(city)
+  .then(summaries => response.send(summaries))
+  .catch((error) => {
+    console.error(error);
+    response.status(200).send('Sorry. Something went wrong!')
+  });
+}  
 
 
-//ROUTES
-
-//app.get correlates to axios.get
-//the first param is the URL in quotes
-app.get('/', (request, response) => response.send("Hello, from servered"));
-
-
-app.get('/weather', weather);
-async function weather(request, response){
-    try{
-        let isResponse = await getWeather(request.query.city_name);//.then().catch;//get axios is in here
-        response.send(isResponse);
-    }catch(e)  {response.status(500).send(e.message);}
+function movieHandler(request, response)
+{
+    const {city_name} = request.query;
+    movies(city_name)
+    .then(summaries => response.send(summaries))
+    .catch((error) =>{
+        console.error(error)
+        response.status(200).send('sorry. Something went wrong!');
+    });
 }
 
-app.get('/movies', movies);
-async function movies(request, response) {
-    try {
-        let isResponse = await getMovies(request.query.city_name);
-        response.send(isResponse);
-    }catch(e)  {response.status(500).send(e.message);}
-}
-
-//CATCH ALL: error and must be at bottom of all app.gets
-app.get('*', (request, response) => response.send('Error, try another request for PORT'));
-
-//ERRORS
-app.use((error, request, response, next) => response.status(500).send(error.message));
-
-
-
-//Listen
-//listen is an Express method that takes in a PORT value and a call function
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Server up on ${PORT}`));
