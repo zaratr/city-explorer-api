@@ -31,12 +31,28 @@
 ### Lab09 Web Request Response Cycle (WRRC) 
 ![Lab 09 Overview of Web Request Response cycle (WRRC)](public/lab9.jpg)
 
+### Lab10 Web Request Response Cycle (WRRC) 
+![Lab 10 Overview of Web Request Response cycle (WRRC)](public/lab10.jpg)
+
+
+
 
 Name of feature: City Explorer Node Express
 
 Estimate of time needed to complete: 2 hours
 
 Start time: 1500
+Finish time: 1700
+
+Actual time needed to complete: 4 hours
+
+
+Name of feature: Advanced Topics
+
+Estimate of time needed to complete: four hours
+
+Start time: 1500
+
 Finish time: 1700
 
 Actual time needed to complete: 4 hours
